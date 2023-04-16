@@ -4,7 +4,6 @@ import logging
 
 import os
 
-#set your lifx api key as an environment variable
 API_TOKEN = os.environ['LIFX_API_KEY']
 
 
