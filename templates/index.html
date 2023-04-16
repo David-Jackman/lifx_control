@@ -1,0 +1,42 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+    <title>LIFX Control</title>
+</head>
+<body>
+    <div class="container">
+        <h1>LIFX Control</h1>
+
+        <form action="/" method="post">
+            <label for="lights">Select Lights:</label>
+            <select name="lights" id="lights" multiple>
+                {% for light in lights %}
+                    <option value="{{ light.id }}">{{ light.label }}</option>
+                {% endfor %}
+            </select>
+
+            <label for="action">Select Action:</label>
+            <select name="action" id="action">
+                <option value="toggle">Toggle</option>
+                <option value="set_color">Set Color</option>
+            </select>
+
+            <label for="color">Color (only for Set Color action):</label>
+            <input type="text" name="color" id="color" placeholder="e.g. red, green, blue, #FF00FF">
+
+            <label for="brightness">Brightness (only for Set Color action):</label>
+            <input type="number" name="brightness" id="brightness" step="0.01" min="0" max="1" placeholder="0.0 to 1.0">
+
+            <label for="duration">Transition Duration (only for Set Color action):</label>
+            <input type="number" name="duration" id="duration" step="0.1" min="0" placeholder="Duration in seconds">
+
+            <input type="submit" value="Perform Action">
+        </form>
+    </div>
+</body>
+</html>
