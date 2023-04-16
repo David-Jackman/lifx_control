@@ -4,11 +4,9 @@ import logging
 
 import os
 
+#set your lifx api key as an environment variable
 API_TOKEN = os.environ['LIFX_API_KEY']
 
-
-# Replace with your personal LIFX API token
-# API_TOKEN = 'c2aae87a2d0a3bb6476370893d71ffa409d6ac07c8fe40c72b69f14d6c5b6dd6'
 
 HEADERS = {
     'Authorization': f'Bearer {API_TOKEN}'
